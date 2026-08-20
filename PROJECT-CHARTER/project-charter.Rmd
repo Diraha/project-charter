@@ -1,0 +1,675 @@
+---
+title: "project-charter"
+author: "kelompok-5"
+date: "2026-08-20"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# PROJECT CHARTER
+
+## CAMPUS SERVICE INFRASTRUCTURE
+
+### Implementasi Infrastruktur Aplikasi Layanan Kampus Berbasis Web Menggunakan Docker, Nginx Reverse Proxy, Database, Monitoring, Security, dan Backup
+
+---
+
+## 1. Identitas Proyek
+
+| Komponen            | Keterangan                                                                                                                                          |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nama Proyek         | Campus Service Infrastructure                                                                                                                       |
+| Judul Proyek        | Implementasi Infrastruktur Aplikasi Layanan Kampus Berbasis Web Menggunakan Docker, Nginx Reverse Proxy, Database, Monitoring, Security, dan Backup |
+| Mata Kuliah         | Administrasi Aplikasi Jaringan                                                                                                                      |
+| Metode Pembelajaran | Project Based Learning (PjBL)                                                                                                                       |
+| Program Studi       | Teknologi Rekayasa Perangkat Lunak (TRPL)                                                                                                           |
+| Semester            | .................                                                                                                                                   |
+| Kelas               | .................                                                                                                                                   |
+| Kelompok            | Kelompok .................                                                                                                                          |
+| Dosen Pengampu      | ................. 																    |
+| Asisten	      | .................                                                                                                                                   |
+| Periode Proyek      | .................                                                                                                                                   |
+| Repository          | .................                                                                                                                                   |
+
+---
+
+# 2. Latar Belakang
+
+Perkembangan aplikasi berbasis web membutuhkan infrastruktur jaringan dan server yang mampu mendukung proses deployment, komunikasi antarservice, penyimpanan data, keamanan, monitoring, serta pemeliharaan sistem.
+
+Dalam praktiknya, sebuah aplikasi web tidak hanya membutuhkan source code aplikasi, tetapi juga membutuhkan lingkungan server yang terkonfigurasi dengan baik. Komponen seperti Linux Server, container, network, reverse proxy, database, storage, security, monitoring, dan backup menjadi bagian penting dalam pengoperasian aplikasi.
+
+Melalui proyek **Campus Service Infrastructure**, mahasiswa akan membangun sebuah infrastruktur aplikasi layanan kampus berbasis web dengan menggunakan Ubuntu Server dan Docker.
+
+Aplikasi web yang digunakan dibuat secara sederhana dan hanya berfungsi sebagai media untuk menguji implementasi infrastruktur. Dengan demikian, fokus utama proyek adalah **administrasi dan implementasi infrastruktur aplikasi jaringan**, bukan pengembangan aplikasi web yang kompleks.
+
+---
+
+# 3. Deskripsi Proyek
+
+Proyek ini merupakan implementasi infrastruktur aplikasi layanan kampus berbasis web menggunakan pendekatan containerized infrastructure.
+
+Infrastruktur yang dibangun meliputi:
+
+* Ubuntu Server
+* Git dan repository management
+* Docker
+* Docker Compose
+* Docker Network
+* Web/Application Container
+* Database Container
+* Nginx Reverse Proxy
+* Persistent Storage
+* HTTPS
+* Firewall
+* Monitoring
+* Backup dan Restore
+* Deployment
+* Troubleshooting
+
+Aplikasi web yang digunakan memiliki fungsi sederhana, misalnya:
+
+* layanan pemesanan,
+* layanan dokumen,
+* layanan pengajuan,
+* layanan informasi,
+* atau layanan kampus sederhana lainnya.
+
+Pemilihan fungsi aplikasi dapat berbeda antar kelompok, tetapi **arsitektur dan komponen infrastrukturnya tetap mengacu pada standar proyek**.
+
+---
+
+# 4. Tujuan Proyek
+
+## 4.1 Tujuan Umum
+
+Membangun dan mengimplementasikan infrastruktur aplikasi layanan kampus berbasis web yang terintegrasi, terkontainerisasi, aman, dapat dimonitor, memiliki mekanisme backup dan restore, serta dapat dilakukan deployment ulang secara terstruktur.
+
+## 4.2 Tujuan Khusus
+
+Mahasiswa diharapkan mampu:
+
+1. Menyiapkan Ubuntu Server sebagai lingkungan deployment.
+2. Menggunakan Git untuk version control dan repository management.
+3. Mengimplementasikan Docker dan Docker Compose.
+4. Membuat komunikasi antar-container menggunakan Docker Network.
+5. Mengimplementasikan Nginx sebagai Reverse Proxy.
+6. Menghubungkan aplikasi dengan database.
+7. Mengimplementasikan persistent storage.
+8. Mengkonfigurasi HTTPS/SSL.
+9. Mengimplementasikan firewall dasar.
+10. Melakukan monitoring terhadap service dan server.
+11. Membuat mekanisme backup dan restore.
+12. Melakukan deployment aplikasi.
+13. Melakukan testing dan troubleshooting.
+14. Mendokumentasikan seluruh proses implementasi.
+15. Menggunakan Git repository sebagai bukti proses pengembangan proyek.
+
+---
+
+# 5. Ruang Lingkup Proyek
+
+## 5.1 Termasuk dalam Proyek
+
+### Infrastruktur Server
+
+* Instalasi dan konfigurasi Ubuntu Server.
+* Konfigurasi IP dan hostname.
+* Network connectivity.
+* Instalasi Git.
+* Konfigurasi environment server.
+
+### Container
+
+* Instalasi Docker.
+* Docker Image.
+* Docker Container.
+* Docker Compose.
+* Docker Network.
+* Docker Volume.
+
+### Application Service
+
+* Menjalankan aplikasi web sederhana.
+* Deployment aplikasi menggunakan container.
+* Konfigurasi komunikasi aplikasi dengan database.
+
+### Database
+
+* Database server.
+* Database schema sederhana.
+* Konfigurasi database.
+* Persistent data.
+* Backup database.
+
+### Reverse Proxy
+
+* Instalasi/configuration Nginx.
+* Routing request menuju application container.
+* Konfigurasi port HTTP/HTTPS.
+
+### Security
+
+* Firewall.
+* Pembatasan port.
+* HTTPS/SSL.
+* Pengamanan credential.
+
+### Monitoring
+
+* Monitoring status server.
+* Monitoring container.
+* Monitoring service.
+* Pemeriksaan log.
+
+### Backup dan Restore
+
+* Backup database/data.
+* Restore database/data.
+* Pengujian hasil restore.
+
+### Testing
+
+* Connectivity testing.
+* Port testing.
+* Service testing.
+* Application testing.
+* Database testing.
+* Reverse proxy testing.
+* Security testing.
+* Backup/restore testing.
+
+### Dokumentasi
+
+* Project Charter.
+* Arsitektur sistem.
+* Network design.
+* Deployment guide.
+* Testing report.
+* Troubleshooting guide.
+* Dokumentasi repository.
+
+---
+
+# 6. Di Luar Ruang Lingkup
+
+Proyek tidak berfokus pada:
+
+* Pengembangan aplikasi web yang kompleks.
+* UI/UX tingkat lanjut.
+* Mobile application.
+* Artificial Intelligence.
+* Machine Learning.
+* Microservices dalam skala enterprise.
+* Kubernetes.
+* Cloud architecture tingkat lanjut.
+* High availability.
+* Load balancing skala enterprise.
+
+Pengembangan aplikasi dibatasi pada **aplikasi sederhana yang memiliki fungsi CRUD dasar** sebagai media pengujian infrastruktur.
+
+---
+
+# 7. Arsitektur Sistem
+
+Arsitektur dasar proyek:
+
+```text
+                         CLIENT
+                           │
+                           │ HTTP / HTTPS
+                           ▼
+                  ┌─────────────────┐
+                  │  Nginx Proxy    │
+                  │    :80 / :443   │
+                  └────────┬────────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │   Web / App     │
+                  │    Container    │
+                  └────────┬────────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │    Database     │
+                  │    Container    │
+                  └────────┬────────┘
+                           │
+                    Persistent Volume
+
+
+        ┌───────────────────────────────┐
+        │           Monitoring          │
+        └───────────────────────────────┘
+
+        ┌───────────────────────────────┐
+        │        Backup & Restore       │
+        └───────────────────────────────┘
+```
+
+### Alur Utama
+
+```text
+Client
+   │
+   ▼
+Nginx Reverse Proxy
+   │
+   ▼
+Application Container
+   │
+   ▼
+Database Container
+   │
+   ▼
+Persistent Storage
+```
+
+Komponen monitoring dan backup berfungsi sebagai komponen pendukung untuk menjaga reliability dan maintainability sistem.
+
+---
+
+# 8. Teknologi yang Digunakan
+
+| Komponen         | Teknologi                 |
+| ---------------- | ------------------------- |
+| Operating System | Ubuntu Server             |
+| Version Control  | Git                       |
+| Repository       | GitHub / GitLab           |
+| Container        | Docker                    |
+| Orchestration    | Docker Compose            |
+| Network          | Docker Network            |
+| Reverse Proxy    | Nginx                     |
+| Database         | PostgreSQL / MariaDB      |
+| Application      | Web Application sederhana |
+| Storage          | Docker Volume             |
+| Security         | UFW / Firewall            |
+| HTTPS            | SSL/TLS                   |
+| Monitoring       | Monitoring Tools          |
+| Backup           | Shell Script              |
+
+---
+
+# 9. Deliverables
+
+Setiap kelompok wajib menghasilkan:
+
+| No | Deliverable                   |
+| -: | ----------------------------- |
+|  1 | Project Charter               |
+|  2 | Git Repository                |
+|  3 | Ubuntu Server Environment     |
+|  4 | Docker Environment            |
+|  5 | Docker Compose Configuration  |
+|  6 | Application Container         |
+|  7 | Database Container            |
+|  8 | Docker Network                |
+|  9 | Nginx Reverse Proxy           |
+| 10 | Persistent Storage            |
+| 11 | HTTPS                         |
+| 12 | Firewall Configuration        |
+| 13 | Monitoring                    |
+| 14 | Backup Script                 |
+| 15 | Restore Script                |
+| 16 | Deployment Script             |
+| 17 | Testing Report                |
+| 18 | Troubleshooting Documentation |
+| 19 | Final Documentation           |
+| 20 | Demo / Presentation           |
+
+---
+
+# 10. Struktur Repository
+
+Repository proyek menggunakan struktur:
+
+```text
+campus-service-infrastructure/
+│
+├── README.md
+├── .gitignore
+├── .env.example
+│
+├── docs/
+│   ├── project-charter.md
+│   ├── architecture.md
+│   ├── network-design.md
+│   ├── deployment.md
+│   ├── testing.md
+│   ├── troubleshooting.md
+│   └── screenshots/
+│
+├── docker/
+│   ├── docker-compose.yml
+│   ├── app/
+│   ├── database/
+│   └── nginx/
+│
+├── app/
+│
+├── database/
+│   ├── schema/
+│   ├── migration/
+│   └── seed/
+│
+├── config/
+│   ├── nginx/
+│   ├── firewall/
+│   ├── network/
+│   └── server/
+│
+├── scripts/
+│   ├── backup.sh
+│   ├── restore.sh
+│   ├── deploy.sh
+│   └── health-check.sh
+│
+├── monitoring/
+│   ├── README.md
+│   └── config/
+│
+├── tests/
+│   ├── connectivity/
+│   ├── service/
+│   ├── security/
+│   └── performance/
+│
+└── backup/
+    └── .gitkeep
+```
+
+---
+
+# 11. Git dan Repository Management
+
+Setiap kelompok wajib menggunakan Git untuk mengelola seluruh konfigurasi dan dokumentasi proyek.
+
+Struktur branch:
+
+```text
+main
+ │
+ └── develop
+      │
+      ├── feature/docker
+      ├── feature/nginx
+      ├── feature/database
+      ├── feature/monitoring
+      └── feature/backup
+```
+
+Contoh pembuatan branch:
+
+```bash
+git checkout -b feature/docker
+```
+
+Commit:
+
+```bash
+git add .
+git commit -m "feat: implement docker environment"
+```
+
+Push:
+
+```bash
+git push origin feature/docker
+```
+
+Setiap anggota harus memiliki kontribusi Git yang dapat diverifikasi.
+
+---
+
+# 12. Standar Commit
+
+| Prefix      | Penggunaan         |
+| ----------- | ------------------ |
+| `feat:`     | Penambahan fitur   |
+| `fix:`      | Perbaikan          |
+| `docs:`     | Dokumentasi        |
+| `config:`   | Konfigurasi        |
+| `test:`     | Pengujian          |
+| `refactor:` | Perapihan          |
+| `backup:`   | Backup dan restore |
+| `deploy:`   | Deployment         |
+
+Contoh:
+
+```bash
+git commit -m "feat: add nginx reverse proxy"
+git commit -m "config: configure docker network"
+git commit -m "docs: update deployment guide"
+git commit -m "test: add service connectivity test"
+git commit -m "backup: add database backup script"
+```
+
+---
+
+# 13. Milestone Proyek
+
+Pelaksanaan proyek mengikuti tahapan pembelajaran mingguan:
+
+| Minggu | Milestone               | Target Utama                      | Output                       |
+| -----: | ----------------------- | --------------------------------- | ---------------------------- |
+|      1 | Project Initiation      | Menentukan proyek dan kebutuhan   | Project Charter + Repository |
+|      2 | Docker Environment      | Menyiapkan Docker                 | Docker Environment           |
+|      3 | Multi-Container         | Menjalankan beberapa service      | Docker Compose               |
+|      4 | Network + Reverse Proxy | Menghubungkan service             | Docker Network + Nginx       |
+|      5 | Persistent Storage      | Menyimpan data secara persistent  | Docker Volume                |
+|      6 | Database Service        | Menyiapkan database               | Database Container           |
+|      7 | Security + HTTPS        | Mengamankan service               | Firewall + HTTPS             |
+|      8 | Monitoring              | Memantau service                  | Monitoring                   |
+|      9 | Backup & Restore        | Melindungi data                   | Backup + Restore             |
+|     10 | Deployment              | Menyiapkan deployment             | Deployment Script            |
+|     11 | Testing                 | Menguji sistem                    | Testing Report               |
+|     12 | Troubleshooting         | Menangani masalah                 | Troubleshooting Report       |
+|     13 | Integration             | Mengintegrasikan seluruh komponen | Integrated System            |
+|     14 | Final Testing           | Validasi sistem                   | Final Test Report            |
+|     15 | Documentation           | Finalisasi dokumentasi            | Final Documentation          |
+|     16 | Presentation            | Demonstrasi proyek                | Demo + Presentation          |
+
+---
+
+# 14. Kriteria Keberhasilan
+
+Proyek dinyatakan berhasil apabila:
+
+### Server
+
+* Ubuntu Server berjalan.
+* Server dapat diakses.
+* Network connectivity berhasil.
+
+### Docker
+
+* Docker berjalan.
+* Docker Compose berjalan.
+* Application container berjalan.
+* Database container berjalan.
+* Container network berjalan.
+
+### Application
+
+* Aplikasi dapat diakses.
+* Aplikasi dapat berkomunikasi dengan database.
+* Fungsi CRUD dasar dapat dijalankan.
+
+### Reverse Proxy
+
+* Nginx berjalan.
+* Request dari client diteruskan ke application container.
+* Port HTTP/HTTPS dapat digunakan sesuai konfigurasi.
+
+### Storage
+
+* Persistent volume berjalan.
+* Data tetap tersedia setelah container restart.
+
+### Security
+
+* Firewall aktif.
+* Hanya port yang diperlukan yang dibuka.
+* HTTPS berhasil dikonfigurasi.
+
+### Monitoring
+
+* Status container dapat diperiksa.
+* Status service dapat diperiksa.
+* Log dapat diperiksa.
+
+### Backup
+
+* Backup dapat dilakukan.
+* Restore dapat dilakukan.
+* Data setelah restore dapat diverifikasi.
+
+### Deployment
+
+* Sistem dapat dijalankan kembali menggunakan repository.
+* Konfigurasi deployment terdokumentasi.
+
+### Documentation
+
+* Dokumentasi lengkap.
+* Repository terstruktur.
+* Setiap anggota memiliki kontribusi.
+
+---
+
+# 15. Definition of Done
+
+Proyek dianggap **DONE** apabila seluruh kondisi berikut terpenuhi:
+
+* [ ] Ubuntu Server dapat diakses.
+* [ ] Git repository tersedia.
+* [ ] Docker berjalan.
+* [ ] Docker Compose berjalan.
+* [ ] Application container berjalan.
+* [ ] Database container berjalan.
+* [ ] Container network berfungsi.
+* [ ] Nginx Reverse Proxy berfungsi.
+* [ ] Persistent storage berfungsi.
+* [ ] HTTPS dikonfigurasi.
+* [ ] Firewall dikonfigurasi.
+* [ ] Monitoring berjalan.
+* [ ] Backup berhasil.
+* [ ] Restore berhasil.
+* [ ] Seluruh service telah diuji.
+* [ ] Troubleshooting telah dilakukan.
+* [ ] Dokumentasi lengkap.
+* [ ] Deployment dapat dilakukan kembali.
+* [ ] Repository dapat digunakan untuk deployment ulang.
+* [ ] Setiap anggota memiliki kontribusi Git yang dapat diverifikasi.
+
+---
+
+# 16. Risiko Proyek
+
+| Risiko                     | Dampak                           | Mitigasi                            |
+| -------------------------- | -------------------------------- | ----------------------------------- |
+| Docker tidak berjalan      | Service tidak dapat dijalankan   | Periksa service dan log Docker      |
+| Konfigurasi network salah  | Container tidak saling terhubung | Periksa Docker Network              |
+| Nginx salah konfigurasi    | Aplikasi tidak dapat diakses     | Validasi konfigurasi Nginx          |
+| Database gagal             | Aplikasi tidak berfungsi         | Periksa database log dan credential |
+| Data hilang                | Kehilangan data proyek           | Backup berkala                      |
+| HTTPS gagal                | Service tidak aman               | Validasi SSL/TLS                    |
+| Firewall salah konfigurasi | Service tidak dapat diakses      | Periksa rule UFW                    |
+| Container berhenti         | Service tidak tersedia           | Monitoring dan health check         |
+| Repository tidak teratur   | Deployment sulit                 | Standar struktur dan Git workflow   |
+| Credential bocor           | Risiko keamanan                  | Gunakan `.env` dan `.gitignore`     |
+
+---
+
+# 17. Batasan Proyek
+
+Proyek memiliki batasan:
+
+1. Aplikasi web hanya menggunakan fungsi sederhana.
+2. Pengembangan aplikasi bukan fokus utama.
+3. Infrastruktur dijalankan pada lingkungan Ubuntu Server.
+4. Database menggunakan PostgreSQL atau MariaDB.
+5. Deployment menggunakan Docker dan Docker Compose.
+6. Monitoring disesuaikan dengan tools yang tersedia.
+7. HTTPS dapat menggunakan sertifikat self-signed untuk lingkungan pembelajaran apabila domain publik tidak tersedia.
+8. Backup menggunakan mekanisme sederhana berbasis Shell Script.
+9. Infrastruktur ditujukan untuk lingkungan pembelajaran, bukan production enterprise.
+
+---
+
+# 18. Pembagian Tugas Kelompok
+
+| Role                            | Tanggung Jawab                        |
+| ------------------------------- | ------------------------------------- |
+| Project Lead                    | Koordinasi, timeline, integrasi       |
+| Infrastructure Engineer         | Ubuntu, Docker, server                |
+| Network / DevOps Engineer       | Network, Nginx, deployment            |
+| Database / Application Engineer | Application dan database              |
+| Security / Monitoring           | Firewall, HTTPS, monitoring           |
+| Documentation / Testing         | Testing, dokumentasi, troubleshooting |
+
+> Jumlah role dapat disesuaikan dengan jumlah anggota kelompok.
+
+---
+
+# 19. Identitas dan Komitmen Kelompok
+
+### Nama Kelompok
+
+**Kelompok:** ....................................................
+
+### Anggota
+
+| No | Nama | NIM | Role | Tanda Tangan |
+| -: | ---- | --- | ---- | ------------ |
+|  1 |      |     |      |              |
+|  2 |      |     |      |              |
+|  3 |      |     |      |              |
+|  4 |      |     |      |              |
+
+### Repository
+
+**URL Repository:**
+....................................................
+
+### Server
+
+**Hostname:**
+....................................................
+
+**IP Address:**
+....................................................
+
+### Domain / Host
+
+**Domain / Hostname:**
+....................................................
+
+---
+
+# 20. Persetujuan Project Charter
+
+Dengan menyetujui Project Charter ini, kelompok berkomitmen untuk melaksanakan proyek sesuai ruang lingkup, milestone, deliverables, dan kriteria keberhasilan yang telah ditetapkan.
+
+| Peran          | Nama | Tanggal | Persetujuan |
+| -------------- | ---- | ------- | ----------- |
+| Project Lead   |      |         |             |
+| Anggota        |      |         |             |
+| Anggota        |      |         |             |
+| Anggota        |      |         |             |
+| Dosen Pengampu |      |         |             |
+
+---
+
+# 21. Prinsip Utama Proyek
+
+> **Repository bukan hanya tempat menyimpan source code, tetapi menjadi bukti bahwa mahasiswa mampu membangun, mengonfigurasi, menguji, mendokumentasikan, dan melakukan deployment infrastruktur aplikasi secara terstruktur.**
+
+> **Aplikasi web merupakan media pengujian, sedangkan fokus utama proyek adalah implementasi Infrastruktur Aplikasi Jaringan.**
+
